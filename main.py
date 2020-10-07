@@ -14,5 +14,7 @@ for line in file:
 
 # zmiana ;p
 
+# zmiana 2
+
 file.close()
 
