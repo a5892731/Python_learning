@@ -16,5 +16,7 @@ for line in file:
 
 # zmiana 2
 
+# zmiana 3
+
 file.close()
 
