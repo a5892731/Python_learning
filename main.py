@@ -12,4 +12,11 @@ for line in file:
     print(line, end='')
 
 
+# zmiana ;p
+
+# zmiana 2
+
+# zmiana 3
+
 file.close()
+
