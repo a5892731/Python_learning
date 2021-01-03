@@ -61,7 +61,7 @@ while True:
     print_main_heading()
 
     try:
-        player_one_choice = int(input(">>> player one choice: "))
+        player_one_choice = int(input("\n>>> player one choice: "))
     except ValueError:
         system('cls')  # clear screen
         print(">>> >>> >>> wrong choice, please put the number")
@@ -76,7 +76,7 @@ while True:
 
     print_main_heading()
     try:
-        player_two_choice = int(input(">>> player two choice: "))
+        player_two_choice = int(input("\n>>> player two choice: "))
     except ValueError:
         system('cls')  # clear screen
         print(">>> >>> >>> wrong choice, please put the number")
@@ -92,7 +92,7 @@ while True:
 
     print("player one choice: {}".format(dict(map(reversed, GAME_DICTIONARY.items()))[player_one_choice])) # value : key from GAME_DICTIONARY
     print("player one choice: {}".format(dict(map(reversed, GAME_DICTIONARY.items()))[player_two_choice])) # value : key from GAME_DICTIONARY
-    print("\nGame result: " + solving_the_game(player_one_choice, player_two_choice, GAME_DICTIONARY))
+    print("\ngame result: " + solving_the_game(player_one_choice, player_two_choice, GAME_DICTIONARY))
     print("congratulations")
     next_game_choice = input("\n>>> do you want to continue Y/N?: ")
     if next_game_choice == "y" or next_game_choice == "Y":\
