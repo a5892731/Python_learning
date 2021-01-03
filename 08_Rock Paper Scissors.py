@@ -93,7 +93,7 @@ while True:
     print("player one choice: {}".format(dict(map(reversed, GAME_DICTIONARY.items()))[player_one_choice])) # value : key from GAME_DICTIONARY
     print("player one choice: {}".format(dict(map(reversed, GAME_DICTIONARY.items()))[player_two_choice])) # value : key from GAME_DICTIONARY
     print("\ngame result: " + solving_the_game(player_one_choice, player_two_choice, GAME_DICTIONARY))
-    print("congratulations")
+    print("\ncongratulations")
     next_game_choice = input("\n>>> do you want to continue Y/N?: ")
     if next_game_choice == "y" or next_game_choice == "Y":\
         system('cls')  # clear screen
