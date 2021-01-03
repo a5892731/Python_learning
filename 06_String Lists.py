@@ -9,7 +9,7 @@ def palindrome_of_string_check(string):
     else:
         print("this string is not palindrome!")
 
-
+# main
 print("program that check string is a palindrome or not")
 string_from_user = input("give me a string: ")
 
