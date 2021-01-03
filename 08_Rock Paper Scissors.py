@@ -16,9 +16,9 @@ from os import system
 def print_main_heading():
     print("-----------------------------------")
     print("Welcome in Rock-Paper-Scissors game")
-    print("For Rock prees >>> 1 <<< ----------")
-    print("For Paper prees >>> 2 <<< ---------")
-    print("For Scissors prees >>> 3 <<< ------")
+    print("For Rock press >>> 1 <<< ----------")
+    print("For Paper press >>> 2 <<< ---------")
+    print("For Scissors press >>> 3 <<< ------")
 #----------main-----------
 
 
