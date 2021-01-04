@@ -7,20 +7,6 @@ of the previous two numbers in the sequence. The sequence looks like this: 1, 1,
 '''
 
 
-
-def fibonnaci_number_generator(number):
-
-    if number == 0:
-        return 0
-    elif number == 1:
-        return 1
-    elif number > 1:
-        return
-
-
-
-
-
 def fibonnaci_sequece_generator(length_of_fibonnaci_sequece): # https://en.wikipedia.org/wiki/Fibonacci_number
 
 
