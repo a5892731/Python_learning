@@ -61,9 +61,11 @@ while True:
 
     if user_choice == USER_CHOICE_DICTIONARY["Wrong data"]:
         continue
+
     elif user_choice == USER_CHOICE_DICTIONARY["Week Password"]:
         print(">>> >>> generated week password: {}".format(week_password_generator(week_passwords_list())))
         break
+
     elif user_choice == USER_CHOICE_DICTIONARY["Strong Password"]:
 
         password_length = int(input("give me a password length: "))
@@ -79,4 +81,4 @@ while True:
 
         break
     else:
-        None
+        break
