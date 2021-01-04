@@ -33,7 +33,6 @@ def random_list_generator(max_list_length = 99, max_value_of_element = 99):
 
 
 def common_elements_list_generator(list_1, list_2):
-    output = []
 
     output = [
               element_from_list_2
