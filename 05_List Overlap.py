@@ -56,8 +56,10 @@ print("second task")
 
 print("------------------------------------------------")
 print("program that returns a list that contains only the elements that are common between the random generated lists")
-list_1 = random_list_generator()
-list_2 = random_list_generator()
+list_1 = random_list_generator().sort()
+list_2 = random_list_generator().sort()
+
+
 print("first list {}".format(list_1))
 print("second list {}".format(list_2))
 print("common elements: {}".format(common_elements_list_generator(list_1, list_2)))
@@ -69,8 +71,8 @@ print("third task")
 
 print("------------------------------------------------")
 print("program that returns a list that contains only the elements that are common between the random generated lists")
-list_1 = random_list_generator()
-list_2 = random_list_generator()
+list_1 = random_list_generator().sort()
+list_2 = random_list_generator().sort()
 print("first list {}".format(list_1))
 print("second list {}".format(list_2))
 

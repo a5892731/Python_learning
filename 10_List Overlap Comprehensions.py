@@ -23,3 +23,36 @@ Extra:
     Randomly generate two lists to test this
 '''
 
+
+from random import randint
+
+
+def random_list_generator(max_list_length = 99, max_value_of_element = 99):
+    random_list_lenghth = randint(1, max_list_length)
+    return [randint(1, max_value_of_element) for each_element in range(1, random_list_lenghth)]
+
+
+def common_elements_list_generator(list_1, list_2):
+    output = []
+
+    output = [
+              element_from_list_2
+              for element_from_list_1 in list_1 for element_from_list_2 in list_2
+              if element_from_list_1 == element_from_list_2
+              ]
+
+    return list(dict.fromkeys(output))   # removing duplicats by generating a dictionary
+
+
+# >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
+
+
+print("------------------------------------------------")
+print("program that returns a list that contains only the elements that are common between the random generated lists")
+list_1 = random_list_generator()
+list_2 = random_list_generator()
+print("first list {}".format(list_1))
+print("second list {}".format(list_2))
+print("common elements: {}".format(common_elements_list_generator(list_1, list_2)))
+print("------------------------------------------------")
+
