@@ -57,7 +57,7 @@ while True:
     print("for week password press (1) <<<<<<<<<")
     print("for strong password press (2) <<<<<<<")
     user_choice = get_user_choice(USER_CHOICE_DICTIONARY)
-    print(">>> you chose: {}".format(dict(map(reversed, USER_CHOICE_DICTIONARY.items()))[user_choice])) # value : key from GAME_DICTIONARY
+    print(">>> you chose: {}".format(dict(map(reversed, USER_CHOICE_DICTIONARY.items()))[user_choice])) # value : key from USER_CHOICE_DICTIONARY
 
     if user_choice == USER_CHOICE_DICTIONARY["Wrong data"]:
         continue
