@@ -19,8 +19,6 @@ print("this program prints all the article titles on the New York Times homepage
 url = 'http://www.nytimes.com'
 r = requests.get(url)
 
-print(r.text)
-
 soup = BeautifulSoup(r.text, "html.parser") # "html.parser" is for get rid of warnings > https://stackoverflow.com/questions/33511544/how-to-get-rid-of-beautifulsoup-user-warning
 headline_data = soup.find_all("h2") # <h2>This is heading 2</h2>
 
