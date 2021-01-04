@@ -45,4 +45,4 @@ try:
     length_of_fibonnaci_sequece = int(input("\nhow many numbers in the sequence you want to generate?: "))
     print("\n>>> your Fibonnaci seqence: {}".format(fibonnaci_sequece_generator(length_of_fibonnaci_sequece)))
 except ValueError:
-    print("\n>>> this was now a integer number!")
+    print("\n>>> this was not a integer number!")
