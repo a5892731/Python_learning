@@ -41,7 +41,7 @@ def common_elements_list_generator(list_1, list_2):
               if element_from_list_1 == element_from_list_2
               ]
 
-    return list(dict.fromkeys(output))   # removing duplicats by generating a dictionary
+    return list(dict.fromkeys(output))   # removing duplicates by generating a dictionary
 
 
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
