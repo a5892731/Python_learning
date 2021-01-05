@@ -26,6 +26,12 @@ html = url.text
 page = BeautifulSoup(html, 'html.parser')
 match = page.find_all('div', 'parbase cn_text')
 page_list = [[k.get_text() for k in i.find_all('p')] for i in match]
+
+file = open('19_Decode A Web Page Two.txt', 'w', encoding="utf-8")
+
 for i in page_list[:-2]:
     for k in i:
-        print(k + '\n')
+        print(k + '\n', file=file)
+
+print("check file:  17_Decode A Web Page.txt'")
+file.close()
