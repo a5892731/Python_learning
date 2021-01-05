@@ -22,12 +22,6 @@ from random import randint
 def x_digit_number_generator(x = 4, min_digit_value = 0, max_digit_value = 9): #where x is number of segments
     return [str(randint(min_digit_value, max_digit_value)) for digit_segment in range(x)]
 
-def string_from_list_generator(list):
-    output = ""
-    for element in list:
-        output += str(element)
-    return output
-
 def string_to_list_generator(string):
     output_list = []
     output_list[:] = string
@@ -42,9 +36,6 @@ def list_comparator_for_cow_and_bull_game(list_1, list_2):
         else:
             bull += 1
     return [cow, bull]
-
-
-
 
 
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
