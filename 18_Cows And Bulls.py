@@ -20,13 +20,30 @@ from random import randint
 
 
 def x_digit_number_generator(x = 4, min_digit_valie = 0, max_digit_value = 9): #where x is number of segments
-    return [randint(min_digit_valie, max_digit_value) for digit_segment in range(x)]
+    return [str(randint(min_digit_valie, max_digit_value)) for digit_segment in range(x)]
 
 def string_from_list_generator(list):
     output = ""
     for element in list:
         output += str(element)
     return output
+
+def string_to_list_generator(string):
+    output_list = []
+    output_list[:] = string
+    return output_list
+
+def list_comparator_for_cow_and_bull_game(list_1, list_2):
+    cow = 0
+    bull  = 0
+    for iteration in range(len(list_1)):
+        if list_1[iteration] == list_2[iteration]:
+            cow += 1
+        else:
+            bull += 1
+    return [cow, bull]
+
+
 
 
 
@@ -36,13 +53,34 @@ def string_from_list_generator(list):
 random_4_digit_number = x_digit_number_generator()
 number_of_cows = 0
 number_of_bulls = 0
-number_of_guessing_digit = 1
+attempt = 1
 
 print("------------------------------------------")
 print("this is cows and bulls game!--------------")
-print("guessed the 4 numbers in the correct order")
+print("guessed the {} numbers in the correct order".format(len(random_4_digit_number)))
 
 
+while True:
+    guessing_number = input("\n>>> guess the {} digit: ".format(len(random_4_digit_number)))
+    try:
+        [number_of_cows, number_of_bulls] = list_comparator_for_cow_and_bull_game(random_4_digit_number, string_to_list_generator(guessing_number))
+    except IndexError:
+        continue
+    print("\n{} cows, {} bulls".format(number_of_cows, number_of_bulls))
+
+    if number_of_cows == len(random_4_digit_number):
+        break
+    else:
+        print("\ntry again")
+        attempt += 1
+
+print("\nrandom number is: {}".format(string_from_list_generator(random_4_digit_number)))
+print("your score: {} cows and {} bulls at {} attempt".format(number_of_cows, number_of_bulls, attempt))
+
+
+
+# poor understanding of the requirements :(
+''' 
 for number in random_4_digit_number:
     print("\n{} cows, {} bulls".format(number_of_cows, number_of_bulls))
     while True:
@@ -56,6 +94,4 @@ for number in random_4_digit_number:
         else:
             number_of_bulls += 1
             print("\ntry again...")
-
-print("\nrandom number is: {}".format(string_from_list_generator(random_4_digit_number)))
-print("your score: {} cows and {} bulls".format(number_of_cows, number_of_bulls))
+'''
