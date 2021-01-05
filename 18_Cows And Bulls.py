@@ -42,6 +42,11 @@ def list_comparator_for_cow_and_bull_game(list_1, list_2):
             bull += 1
     return [cow, bull]
 
+def string_from_list_generator(list):
+    output = ""
+    for element in list:
+        output += str(element)
+    return output
 
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
@@ -61,6 +66,7 @@ while True:
     try:
         [number_of_cows, number_of_bulls] = list_comparator_for_cow_and_bull_game(random_4_digit_number, string_to_list_generator(guessing_number))
     except IndexError:
+        attempt += 1
         continue
     print("\n{} cows, {} bulls".format(number_of_cows, number_of_bulls))
 
@@ -70,6 +76,6 @@ while True:
         print("\ntry again")
         attempt += 1
 
-print("\nrandom number is: {}".format(random_4_digit_number))
+print("\nrandom number is: {}".format(string_from_list_generator(random_4_digit_number)))
 print("your score: {} cows and {} bulls at {} attempt".format(number_of_cows, number_of_bulls, attempt))
 
