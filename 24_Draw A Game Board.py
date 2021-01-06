@@ -41,8 +41,8 @@ def drow_game_bord(height = 3, width = 3, field_height = 3, field_width = 3):
 
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
-drow_game_bord(4, 4, 5, 5)
+drow_game_bord(3, 3, 5, 5)
 
-print("\n" * 3)
+print("\n" * 2)
 
-drow_game_bord()
+drow_game_bord(2, 6)
