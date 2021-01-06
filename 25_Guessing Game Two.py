@@ -35,7 +35,7 @@ while True:
         break
 
     attempt += 1
-    print("This number was LOWER or HIGHER?")
+    print("Your number was LOWER or HIGHER?")
     user_response = input("put H or L answer: ")
     if user_response == "H" or user_response == "h":
         min_value = guest_number + 1
