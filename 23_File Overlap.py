@@ -13,25 +13,18 @@ from random import randint
 
 
 
-def random_list_generator(list_length = 1000, max_value_of_element = 1000):
-    return [randint(1, max_value_of_element) for each_element in range(list_length)]
-
-def happy_numbers_generator(max_value = 1000):
-    None
-
-def create_list_of_primary_numbers(max_value = 1000):
+def list_of_primary_numbers_generator(max_value = 1000):
     def divisors_list_creator(number):
         return [divisor for divisor in range(1, number + 1) if number % divisor == 0]
 
     def prime_number_check(number):
 
-        if len(divisors_list_creator(
-                number)) == 2:  # the prime number can be divided only by 1 and himself (2 divisors)
+        if len(divisors_list_creator(number)) == 2:  # the prime number can be divided only by 1 and himself (2 divisors)
             return True
         else:
             return False
 
-    potential_prime_number = 3
+    potential_prime_number = 2 # two is the firs prime number
     prime_numbers_list = []
 
     while potential_prime_number < max_value:
@@ -39,6 +32,34 @@ def create_list_of_primary_numbers(max_value = 1000):
             prime_numbers_list.append(potential_prime_number)
         potential_prime_number += 1
     return prime_numbers_list
+
+def list_of_happy_numbers_generator(max_value = 1000):
+
+    def pdi_function(number, base: int = 10):
+        """Perfect digital invariant function."""
+        total = 0
+        while number > 0:
+            total += pow(number % base, 2)
+            number = number // base
+        return total
+
+    def is_happy(number: int) -> bool:
+        """Determine if the specified number is a happy number."""
+        seen_numbers = set()
+        while number > 1 and number not in seen_numbers:
+            seen_numbers.add(number)
+            number = pdi_function(number)
+
+        return number == 1
+
+    potential_happy_number = 1
+    happy_numbers_list = []
+
+    while potential_happy_number < max_value:
+        if is_happy(potential_happy_number):
+            happy_numbers_list.append(potential_happy_number)
+        potential_happy_number += 1
+    return happy_numbers_list
 
 def create_file_with_list(list, file_name):
     file = open(file_name, 'w', encoding="utf-8")
@@ -53,11 +74,18 @@ def read_list_from_file(file_name):
 
     file = open(file_name, 'r', encoding="utf-8")
     for line in file:
-        output_list.append(line)
+        output_list.append(line.rstrip("\n"))
 
     file.close()
     return output_list
 
+def common_elements_from_two_lists(list_1, list_2):
+    common_elements = []
+    for element_in_list_1 in list_1:
+        for element_in_list_2 in list_2:
+            if element_in_list_1 == element_in_list_2:
+                common_elements.append(element_in_list_2)
+    return common_elements
 
 
 
@@ -66,7 +94,23 @@ def read_list_from_file(file_name):
 print("----------------------------------------------------------------")
 print("this program finds the numbers that are overlapping in two files")
 
-#create_file_with_list(random_list_generator(), "23_File Overlap - Random numbers.txt")
-create_file_with_list(create_list_of_primary_numbers(), "23_File Overlap - Primary numbers.txt")
 
 
+create_file_with_list(list_of_primary_numbers_generator(), "23_File Overlap - Primary numbers.txt")
+
+create_file_with_list(list_of_happy_numbers_generator(), "23_File Overlap - Happy numbers.txt")
+
+
+prime_and_happy_numbers = common_elements_from_two_lists(
+    read_list_from_file("23_File Overlap - Primary numbers.txt"),
+    read_list_from_file("23_File Overlap - Happy numbers.txt"))
+
+
+
+print("Primary numbers: " + str(read_list_from_file("23_File Overlap - Primary numbers.txt")))
+print("Happy numbers: " + str(read_list_from_file("23_File Overlap - Happy numbers.txt")))
+print("Common elements: " + str(prime_and_happy_numbers))
+
+
+
+create_file_with_list(prime_and_happy_numbers, "23_File Overlap - Primary&Happy numbers.txt")
