@@ -8,11 +8,6 @@ And yes, happy numbers are a real thing in mathematics - you can look it up on W
 The explanation is easier with an example, which I will describe below.)
 '''
 
-
-from random import randint
-
-
-
 def list_of_primary_numbers_generator(max_value = 1000):
     def divisors_list_creator(number):
         return [divisor for divisor in range(1, number + 1) if number % divisor == 0]
@@ -81,36 +76,25 @@ def read_list_from_file(file_name):
 
 def common_elements_from_two_lists(list_1, list_2):
     common_elements = []
-    for element_in_list_1 in list_1:
-        for element_in_list_2 in list_2:
-            if element_in_list_1 == element_in_list_2:
-                common_elements.append(element_in_list_2)
+    for number in list_1:
+            if number in list_2:
+                common_elements.append(number)
     return common_elements
-
-
 
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
 print("----------------------------------------------------------------")
 print("this program finds the numbers that are overlapping in two files")
 
-
-
 create_file_with_list(list_of_primary_numbers_generator(), "23_File Overlap - Primary numbers.txt")
-
 create_file_with_list(list_of_happy_numbers_generator(), "23_File Overlap - Happy numbers.txt")
-
 
 prime_and_happy_numbers = common_elements_from_two_lists(
     read_list_from_file("23_File Overlap - Primary numbers.txt"),
     read_list_from_file("23_File Overlap - Happy numbers.txt"))
 
-
-
 print("Primary numbers: " + str(read_list_from_file("23_File Overlap - Primary numbers.txt")))
 print("Happy numbers: " + str(read_list_from_file("23_File Overlap - Happy numbers.txt")))
 print("Common elements: " + str(prime_and_happy_numbers))
-
-
 
 create_file_with_list(prime_and_happy_numbers, "23_File Overlap - Primary&Happy numbers.txt")
