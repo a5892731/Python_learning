@@ -32,7 +32,7 @@ def drow_game_bord(height = 3, width = 3, field_height = 3, field_width = 3):
                         print(" " + field_width * "-", end= "")
                     elif x_pole == width:
                         print(" ", end= "")
-                if row > 0 and row < (field_height - 1): # middle elements of pole
+                if row > 0 and row < (field_height - 1): # midle elements of pole
                     if x_pole != width:
                         print("|" + field_width * " ", end= "")
                     elif x_pole == width:
