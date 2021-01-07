@@ -116,16 +116,16 @@ def switch_tic_tac_toe_player(previouse_player):
         return False
 
 def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
-    COLUMNS_DICTIONARY = {"A": 0, "B": 1,"C": 2, "D": 3,"E": 4, "F": 5,"G": 6, "H": 7, "I": 8, "J": 9}
+    COLUMNS_DICTIONARY = {"A": 0, "B": 1,"C": 2, "D": 3,"E": 4, "F": 5,"G": 6, "H": 7, "I": 8}
+    ROWS_DICTIONARY = {"1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6, "8": 7, "9": 8}
     #adres example: A1 whehe A is column and 1 row
     #player is O or X
     #game values is board matrix
     #occupied_poles is number or previouse moves
-    column = COLUMNS_DICTIONARY[adres[0]]
-    row = int(adres[1]) - 1  # -1 because row 1 is 0 in program
+    column = COLUMNS_DICTIONARY[adres[0]] #first sign
+    row = ROWS_DICTIONARY[adres[1]] #second sign
 
-    if game_values[row][column] == "O" or \
-            game_values[int(adres[1]) - 1][COLUMNS_DICTIONARY[adres[0]]] == "X":
+    if game_values[row][column] == "O" or game_values[row][column] == "X":
         return game_values, player, occupied_poles  # when target is occupied field > do nothing
     else:
         game_values[row][column] = player
