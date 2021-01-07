@@ -171,7 +171,7 @@ game_values = [["4", "4", "O", "4"],
                ["2", "2", "O", "2"],
                ["1", "1", "O", "1"]]
 
-drow_game_bord(game_values, 4, 4)
+drow_game_bord(game_values, 4, 4, 5, 5)
 
 x_status = tic_tac_toe_game_result(game_values, "X", 4)
 o_status = tic_tac_toe_game_result(game_values, "O", 4)
