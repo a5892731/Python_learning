@@ -121,9 +121,9 @@ def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
     #player is O or X
     #game values is board matrix
     #occupied_poles is number or previouse moves
-    row = int(adres[1])-1
     column = COLUMNS_DICTIONARY[adres[0]]
-
+    row = int(adres[1]) - 1  # -1 because row 1 is 0 in program
+    
     if game_values[row][column] == "O" or \
             game_values[int(adres[1]) - 1][COLUMNS_DICTIONARY[adres[0]]] == "X":
         return game_values, player, occupied_poles  # when target is occupied field > do nothing
