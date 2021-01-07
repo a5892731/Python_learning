@@ -139,7 +139,7 @@ TIC_TAC_TOE_DICTIONARY = {"O" : 1, "X" : 2 }
 square_size = 3;
 
 
-while True:
+while True: # games loop
     current_player = "O"  # "O" start the game
     occupied_poles = 0
 
@@ -148,7 +148,7 @@ while True:
                    ["1", "1", "1"]]
 
 
-    while True:
+    while True: # game loop
         print(" ----------- ")
         print(" TIC TAC TOE:")
         print(" --- --- --- ")
