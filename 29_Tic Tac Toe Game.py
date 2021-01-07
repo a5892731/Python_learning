@@ -115,7 +115,7 @@ def switch_tic_tac_toe_player(previouse_player):
     else:
         return False
 
-def tic_tac_toe_input_board_navigation(adres, player, game_values, occupied_poles = 0, square_range = 3):
+def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
     COLUMNS_DICTIONARY = {"A":0, "B":1,"C":2, "D":3,"E":4, "F":5,"G":6, "H":7,"I": 8, "J": 9}
 
     if game_values[int(adres[1])-1][COLUMNS_DICTIONARY[adres[0]]] == "O" or \
@@ -131,38 +131,49 @@ def tic_tac_toe_input_board_navigation(adres, player, game_values, occupied_pole
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
 TIC_TAC_TOE_DICTIONARY = {"O" : 1, "X" : 2 }
-current_player = "O" # "O" start the game
-occupied_poles = 0
 square_size = 3;
 
-game_values = [["3", "3", "3"],
-               ["2", "2", "2"],
-               ["1", "1", "1"]]
 
 while True:
-    print(" ----------- ")
-    print(" TIC TAC TOE:")
-    print(" --- --- --- ")
-    print("  A   B   C  ")
-    drow_game_bord(game_values, square_size, square_size)
-    print("Player {} turn.".format(current_player))
-    print("Choice place. For example A1")
-    player_choice = input("Your choice: >>> {} <<< : ".format(current_player))
-    player_choice = player_choice.capitalize()
-    print("Your choice is: {}".format(player_choice))
+    current_player = "O"  # "O" start the game
+    occupied_poles = 0
+
+    game_values = [["3", "3", "3"],
+                   ["2", "2", "2"],
+                   ["1", "1", "1"]]
 
 
-    [game_values, current_player, occupied_poles] = tic_tac_toe_input_board_navigation(player_choice,
-                                                                                       current_player,
-                                                                                       game_values,
-                                                                                       occupied_poles)
+    while True:
+        print(" ----------- ")
+        print(" TIC TAC TOE:")
+        print(" --- --- --- ")
+        print("  A   B   C  ")
+        drow_game_bord(game_values, square_size, square_size)
+        print("Player {} turn.".format(current_player))
+        print("Choice place. For example A1")
+        player_choice = input("Your choice: >>> {} <<< : ".format(current_player))
+        player_choice = player_choice.capitalize()
+        print("Your choice is: {}".format(player_choice))
 
 
-    x_status = tic_tac_toe_game_result(game_values, "X")
-    o_status = tic_tac_toe_game_result(game_values, "O")
+        [game_values, current_player, occupied_poles] = tic_tac_toe_mechanizm(player_choice,
+                                                                                           current_player,
+                                                                                           game_values,
+                                                                                           occupied_poles)
 
-    if x_status == True or o_status == True or occupied_poles == pow(square_size, 2):
-        drow_game_bord(game_values)
-        if occupied_poles == pow(square_size, 2):
-            print("DRAW: All poles are occupied")
+
+        x_status = tic_tac_toe_game_result(game_values, "X")
+        o_status = tic_tac_toe_game_result(game_values, "O")
+
+        if x_status == True or o_status == True or occupied_poles == pow(square_size, 2):
+            drow_game_bord(game_values)
+            if occupied_poles == pow(square_size, 2):
+                print("DRAW: All poles are occupied")
+            break
+
+    next_game_choice = input("\n>>> do you want to play again Y/N?: ")
+    if next_game_choice == "y" or next_game_choice == "Y":
+        continue
+    else:
+        print("exit")
         break
