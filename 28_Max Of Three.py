@@ -12,5 +12,4 @@ first_number = int(input("Insert a first number: "))
 second_number = int(input("Insert a second number: "))
 third_number = int(input("Insert a third number: "))
 
-
 print("your max is: {}".format(max(first_number, second_number, third_number))) # what is if for?
