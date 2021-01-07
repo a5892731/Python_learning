@@ -134,28 +134,61 @@ def tic_tac_toe_game_result(game_values, player, square_range = 3): # player mus
 
     return game_result
 
+def switch_tic_tac_toe_player(previouse_player):
+    if previouse_player == "X":
+        return "O"
+    elif previouse_player == "O":
+        return "X"
+    else:
+        return False
+
+def tic_tac_toe_input_board_navigation(adres, player, game_values, occupied_poles = 0, square_range = 3):
+    COLUMNS_DICTIONARY = {"A":0, "B":1,"C":2, "D":3,"E":4, "F":5,"G":6, "H":7,"I": 8, "J": 9}
+
+    if game_values[int(adres[1])-1][COLUMNS_DICTIONARY[adres[0]]] == "O" or \
+            game_values[int(adres[1]) - 1][COLUMNS_DICTIONARY[adres[0]]] == "X":
+        return game_values, player, occupied_poles  # when target is occupied field > do nothing
+    else:
+        game_values[int(adres[1])-1][COLUMNS_DICTIONARY[adres[0]]] = player
+        occupied_poles += 1
+        return game_values, switch_tic_tac_toe_player(player), occupied_poles # change object and switch player
+
+
+
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
 TIC_TAC_TOE_DICTIONARY = {"O" : 1, "X" : 2 }
-o_x_switch = "O" # "O" start the game
+current_player = "O" # "O" start the game
+occupied_poles = 0
+square_size = 3;
 
 game_values = [["3", "3", "3"],
                ["2", "2", "2"],
                ["1", "1", "1"]]
 
-game_values = [["X", "3", "3"],
-               ["2", "X", "2"],
-               ["1", "1", "X"]]
+while True:
+    print(" ----------- ")
+    print(" TIC TAC TOE:")
+    print(" --- --- --- ")
+    print("  A   B   C  ")
+    drow_game_bord(game_values, square_size, square_size)
 
-print(" ----------- ")
-print(" TIC TAC TOE:")
-print(" --- --- --- ")
-print("  A   B   C  ")
-drow_game_bord(game_values)
+    player_choice = input("Choice place for >>> {} <<< : ".format(current_player))
+    player_choice = player_choice.capitalize()
+    print("Your choice is: {}".format(player_choice))
 
-#player_choice = input("Choice place for >>> {} <<< : ".format(o_x_switch))
-#player_choice = player_choice.capitalize()
-#print("Your choice is: {}".format(player_choice))
 
-x_status = tic_tac_toe_game_result(game_values, "X")
-o_status = tic_tac_toe_game_result(game_values, "O")
+    [game_values, current_player, occupied_poles] = tic_tac_toe_input_board_navigation(player_choice,
+                                                                                       current_player,
+                                                                                       game_values,
+                                                                                       occupied_poles)
+
+
+    x_status = tic_tac_toe_game_result(game_values, "X")
+    o_status = tic_tac_toe_game_result(game_values, "O")
+
+    if x_status == True or o_status == True or occupied_poles == pow(square_size, 2):
+        drow_game_bord(game_values)
+        if occupied_poles == pow(square_size, 2):
+            print("DRAW: All poles are occupied")
+        break
