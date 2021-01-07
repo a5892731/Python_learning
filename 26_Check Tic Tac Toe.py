@@ -76,7 +76,7 @@ def drow_game_bord(inpur_values = [], height = 3, width = 3, field_height = 3, f
                         print("|", end= "")
             print() # end of line "\n"
 
-def tic_tac_toe_game_result(game_values, player, square_range = 3):
+def tic_tac_toe_game_result(game_values, player, square_range = 3): # player must be named O or X
     game_result = False
 
     if game_result == False:  # possible win in columns check
