@@ -136,16 +136,21 @@ def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
 
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
-square_size = 3
+SQUARE_SIZE = 3 # up to 8
 
 
 while True: # games loop
     current_player = "O"  # "O" start the game
     occupied_poles = 0
 
-    game_values = [["1", "1", "1"],
-                   ["2", "2", "2"],
-                   ["3", "3", "3"]]
+    game_values = [["1", "1", "1", "1", "1", "1", "1", "1"],
+                   ["2", "2", "2", "2", "2", "2", "2", "2"],
+                   ["3", "3", "3", "3", "3", "3", "3", "3"],
+                   ["4", "4", "4", "4", "4", "4", "4", "4"],
+                   ["5", "5", "5", "5", "5", "5", "5", "5"],
+                   ["6", "6", "6", "6", "6", "6", "6", "6"],
+                   ["7", "7", "7", "7", "7", "7", "7", "7"],
+                   ["8", "8", "8", "8", "8", "8", "8", "8"]]
 
 
     while True: # game loop
@@ -153,7 +158,7 @@ while True: # games loop
         print(" TIC TAC TOE:")
         print(" --- --- --- ")
         print("  A   B   C  ")
-        drow_game_bord(game_values, square_size, square_size)
+        drow_game_bord(game_values, SQUARE_SIZE, SQUARE_SIZE)
         print("Player {} turn.".format(current_player))
         print("Choice place. For example A1")
         player_choice = input("Your choice: >>> {} <<< : ".format(current_player))
@@ -167,12 +172,12 @@ while True: # games loop
                                                                                            occupied_poles)
 
 
-        x_status = tic_tac_toe_game_result(game_values, "X")
-        o_status = tic_tac_toe_game_result(game_values, "O")
+        x_status = tic_tac_toe_game_result(game_values, "X", SQUARE_SIZE)
+        o_status = tic_tac_toe_game_result(game_values, "O", SQUARE_SIZE)
 
-        if x_status == True or o_status == True or occupied_poles == pow(square_size, 2):
-            drow_game_bord(game_values)
-            if occupied_poles == pow(square_size, 2):
+        if x_status == True or o_status == True or occupied_poles == pow(SQUARE_SIZE, 2):
+            drow_game_bord(game_values, SQUARE_SIZE, SQUARE_SIZE)
+            if occupied_poles == pow(SQUARE_SIZE, 2):
                 print("DRAW: All poles are occupied")
             break
 
