@@ -121,13 +121,14 @@ def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
     #player is O or X
     #game values is board matrix
     #occupied_poles is number or previouse moves
+    row = int(adres[1])-1
+    column = COLUMNS_DICTIONARY[adres[0]]
 
-
-    if game_values[int(adres[1])-1][COLUMNS_DICTIONARY[adres[0]]] == "O" or \
+    if game_values[row][column] == "O" or \
             game_values[int(adres[1]) - 1][COLUMNS_DICTIONARY[adres[0]]] == "X":
         return game_values, player, occupied_poles  # when target is occupied field > do nothing
     else:
-        game_values[int(adres[1])-1][COLUMNS_DICTIONARY[adres[0]]] = player
+        game_values[row][column] = player
         occupied_poles += 1
         return game_values, switch_tic_tac_toe_player(player), occupied_poles # change object and switch player
 
