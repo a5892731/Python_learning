@@ -172,8 +172,9 @@ while True:
     print(" --- --- --- ")
     print("  A   B   C  ")
     drow_game_bord(game_values, square_size, square_size)
-
-    player_choice = input("Choice place for >>> {} <<< : ".format(current_player))
+    print("Player {} turn.".format(current_player))
+    print("Choice place. For example A1")
+    player_choice = input("Your choice: >>> {} <<< : ".format(current_player))
     player_choice = player_choice.capitalize()
     print("Your choice is: {}".format(player_choice))
 
