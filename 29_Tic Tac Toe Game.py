@@ -176,7 +176,7 @@ while True: # games loop
                 print("DRAW: All poles are occupied")
             break
 
-    next_game_choice = input("\n>>> do you want to play again Y/N?: ")
+    next_game_choice = input("\n>>> do you want to play again? Y/N: ")
     if next_game_choice == "y" or next_game_choice == "Y":
         continue
     else:
