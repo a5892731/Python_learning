@@ -144,9 +144,9 @@ while True: # games loop
     current_player = "O"  # "O" start the game
     occupied_poles = 0
 
-    game_values = [["3", "3", "3"],
+    game_values = [["1", "1", "1"],
                    ["2", "2", "2"],
-                   ["1", "1", "1"]]
+                   ["3", "3", "3"]]
 
 
     while True: # game loop
