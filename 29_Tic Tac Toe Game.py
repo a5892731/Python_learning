@@ -117,6 +117,11 @@ def switch_tic_tac_toe_player(previouse_player):
 
 def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
     COLUMNS_DICTIONARY = {"A":0, "B":1,"C":2, "D":3,"E":4, "F":5,"G":6, "H":7,"I": 8, "J": 9}
+    #adres example: A1 whehe A is column and 1 row
+    #player is O or X
+    #game values is board matrix
+    #occupied_poles is number or previouse moves
+
 
     if game_values[int(adres[1])-1][COLUMNS_DICTIONARY[adres[0]]] == "O" or \
             game_values[int(adres[1]) - 1][COLUMNS_DICTIONARY[adres[0]]] == "X":
