@@ -137,7 +137,7 @@ def tic_tac_toe_mechanizm(adres, player, game_values, occupied_poles = 0):
 # >>>>>>>>>>>>>>>>>>> MAIN <<<<<<<<<<<<<<<<<<<<<
 
 TIC_TAC_TOE_DICTIONARY = {"O" : 1, "X" : 2 }
-square_size = 3;
+square_size = 3
 
 
 while True: # games loop
