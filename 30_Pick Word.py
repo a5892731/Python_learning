@@ -27,7 +27,9 @@ def file_lines_count(file_address):
 file_address = "30_Pick Word - sowpods.txt"
 length_of_file = file_lines_count(file_address)
 random_line_number = randint(1, length_of_file)
+random_word = getline(file_address, random_line_number)
+
 
 print("\nfile: " + file_address + "\n")
-print("Random word: " + str(getline(file_address, random_line_number)) +
+print("Random word: " + random_word +
       "from row " + str(random_line_number) + " of " +str(length_of_file))
