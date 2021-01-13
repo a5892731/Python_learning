@@ -60,7 +60,7 @@ def blanc_guessed_word_generator(correct_word_len):
         output = output + "_"
     return output
 
-def guessed_letter_check(error_count, guessed_letter, guessed_word, correct_word):
+def guessed_letter_check(error_count, correrct_answer_count, guessed_letter, guessed_word, correct_word):
 
     new_guessed_word = ""
 
@@ -68,19 +68,21 @@ def guessed_letter_check(error_count, guessed_letter, guessed_word, correct_word
         for letter_num in range(len(correct_word)):
             if guessed_letter == correct_word[letter_num]:
                 new_guessed_word += guessed_letter
+                correrct_answer_count += 1
             else:
                 new_guessed_word += guessed_word[letter_num]
 
-        return new_guessed_word, error_count
+        return new_guessed_word, error_count, correrct_answer_count
     else:
         error_count += 1
-        return guessed_word, error_count
+        return guessed_word, error_count, correrct_answer_count
 
 # >>>>>>>>>>>>>>>>>>>> main <<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
 error_count = 0
+correrct_answer_count = 0
 
 guessed_letter = ""
 #correct_word = random_word_generator("30_Pick Word - sowpods.txt")  # English words list
@@ -94,11 +96,18 @@ while True:
     draw_hangman(error_count)
     #print("\nCorrect word: " + correct_word )  # FOR APP TEST
     print("Your word:    " + guessed_word )
-    print("Number of errors: " + str(error_count) )
+
 
     guessed_letter = input("Give me a letter: ")
-    guessed_word, error_count = guessed_letter_check(error_count, guessed_letter.upper(), guessed_word, correct_word)
 
+    if guessed_letter.upper() in guessed_word:
+        print("You already used this letter")
+    else:
+        guessed_word, error_count, correrct_answer_count = guessed_letter_check(error_count, correrct_answer_count,
+                                                           guessed_letter.upper(), guessed_word, correct_word)
+
+
+    print("Yur score = correct {}, errors {}".format(correrct_answer_count, error_count))
 
 
 
