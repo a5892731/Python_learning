@@ -4,5 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="scrablle_generator" />
+    <orderEntry type="module" module-name="scrabble_generator" />
+    <orderEntry type="module" module-name="-scrabble_word_generator" />
   </component>
 </module>
