@@ -70,48 +70,60 @@ def guessed_letter_check(error_count, correrct_answer_count, guessed_letter, gue
 
 
 MAX_ATTEMPTS = 6
-error_count = 0
-correrct_answer_count = 0
-
-guessed_letter = ""
-guessed_letters_bufor = ""
-
-#correct_word = random_word_generator("30_Pick Word - sowpods.txt")  # English words list
-correct_word = random_word_generator("31_Pick Word - SLOWA PL.txt")  # Polish word list
-correct_word = correct_word.rstrip("\n").upper()
-guessed_word = blanc_guessed_word_generator(len(correct_word))
 
 
 while True:
 
-    draw_hangman(error_count)
-    #print("\nCorrect word: " + correct_word )  # FOR APP TEST
-    print("Your word:    " + guessed_word )
+    error_count = 0
+    correrct_answer_count = 0
+
+    guessed_letter = ""
+    guessed_letters_bufor = ""
+
+    # correct_word = random_word_generator("30_Pick Word - sowpods.txt")  # English words list
+    correct_word = random_word_generator("31_Pick Word - SLOWA PL.txt")  # Polish word list
+    correct_word = correct_word.rstrip("\n").upper()
+    guessed_word = blanc_guessed_word_generator(len(correct_word))
 
 
-    guessed_letter = input("Give me a letter: ")
+    while True:
+
+        draw_hangman(error_count)
+        #print("\nCorrect word: " + correct_word )  # FOR APP TEST
+        print("Your word:    " + guessed_word )
 
 
-    if guessed_letter.upper() in guessed_letters_bufor:
-        print("\nYou already used this letter!")
+        guessed_letter = input("Give me a letter: ")
+
+
+        if guessed_letter.upper() in guessed_letters_bufor:
+            print("\nYou already used this letter!")
+        else:
+            guessed_letters_bufor += guessed_letter.upper()
+            guessed_word, error_count, correrct_answer_count = guessed_letter_check(error_count, correrct_answer_count,
+                                                               guessed_letter.upper(), guessed_word, correct_word)
+
+
+        print("\nYur score = correct {}, errors {}, attemts left {}".format(correrct_answer_count, error_count,
+                                                                          (MAX_ATTEMPTS - error_count)))
+
+
+
+        if error_count >= MAX_ATTEMPTS:
+            draw_hangman(error_count)
+            print("YOU WERE HANGED!")
+            print("Your word:    " + correct_word)
+            break
+
+        if "_" not in guessed_word:
+            draw_hangman(error_count)
+            print("YOU ARE ALIVE!")
+            break
+
+
+    next_game_choice = input("\n>>> do you want to play again? Y/N: ")
+    if next_game_choice == "y" or next_game_choice == "Y":
+        continue
     else:
-        guessed_letters_bufor += guessed_letter.upper()
-        guessed_word, error_count, correrct_answer_count = guessed_letter_check(error_count, correrct_answer_count,
-                                                           guessed_letter.upper(), guessed_word, correct_word)
-
-
-    print("\nYur score = correct {}, errors {}, attemts left {}".format(correrct_answer_count, error_count,
-                                                                      (MAX_ATTEMPTS - error_count)))
-
-
-
-    if error_count >= MAX_ATTEMPTS:
-        draw_hangman(error_count)
-        print("YOU WERE HANGED!")
-        print("Your word:    " + correct_word)
-        break
-
-    if "_" not in guessed_word:
-        draw_hangman(error_count)
-        print("YOU ARE ALIVE!")
+        print("exit")
         break
