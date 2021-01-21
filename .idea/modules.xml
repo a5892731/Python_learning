@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../-scrabble_word_generator/.idea/-scrabble_word_generator.iml" filepath="$PROJECT_DIR$/../-scrabble_word_generator/.idea/-scrabble_word_generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Project-Euler-tasks-with-Pytest-tests/.idea/Project-Euler-tasks-with-Pytest-tests.iml" filepath="$PROJECT_DIR$/../Project-Euler-tasks-with-Pytest-tests/.idea/Project-Euler-tasks-with-Pytest-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Python_learning.iml" filepath="$PROJECT_DIR$/.idea/Python_learning.iml" />
       <module fileurl="file://$PROJECT_DIR$/../scrabble_generator/.idea/scrabble_generator.iml" filepath="$PROJECT_DIR$/../scrabble_generator/.idea/scrabble_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/../scrabble_generator/.idea/scrablle_generator.iml" filepath="$PROJECT_DIR$/../scrabble_generator/.idea/scrablle_generator.iml" />
