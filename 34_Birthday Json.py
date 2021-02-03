@@ -114,9 +114,11 @@ while True:
 
     elif chose == "5":
         person.save_to_file()
+
     elif chose == "6":
         person.read_from_file()
     elif chose == "7":
+
         person.clear_file()
     else:
         print("wrong data")
