@@ -63,12 +63,12 @@ class Person:
                                  "Last name": self.persons_dict[id].last_name,
                                  "Age": self.persons_dict[id].age})
 
-        with open("34_Persons.txt", "a") as file:
+        with open("34_Persons.txt", "w") as file:
             json.dump(persons_list, file)
         file.close()
 
     def read_from_file(self):
-        persons_list = []
+
         with open('34_Persons.txt') as file:
             data = json.load(file)
             for p in data:
@@ -78,6 +78,17 @@ class Person:
 
     def clear_file(self):
         open('34_Persons.txt', 'w').close()
+
+    def print_from_file(self):
+        with open('34_Persons.txt') as file:
+            data = json.load(file)
+            for p in data:
+                print("-----------------")
+                print("ID: {}".format(p["ID"]))
+                print("Name: {}".format(p["Name"]))
+                print("Last name: {}".format(p["Last name"]))
+                print("Age: {}".format(p["Age"]))
+
 
 
 
@@ -93,7 +104,8 @@ while True:
     print("press 4 for print last data")
     print("press 5 for save data to file")
     print("press 6 for read data from file")
-    print("press 7 for clear file")
+    print("press 7 for print data from file")
+    print("press 8 for clear file")
     chose = input(">>>> your chose: ")
     print("-----------------")
 
@@ -117,8 +129,11 @@ while True:
 
     elif chose == "6":
         person.read_from_file()
-    elif chose == "7":
 
+    elif chose == "7":
+        person.print_from_file()
+
+    elif chose == "8":
         person.clear_file()
     else:
         print("wrong data")
